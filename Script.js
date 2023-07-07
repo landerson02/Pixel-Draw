@@ -12,6 +12,7 @@ let curColor = '#000000';
 let isGridToggled = true;
 let isMouseDown = false;
 let isRandomColors = false;
+let isErasing = false;
 
 colorSign.style.backgroundColor = curColor;
 
@@ -55,6 +56,8 @@ colorSign.addEventListener('click', () => {
 picker.addEventListener('change', (e) => {
     curColor = e.target.value;
     colorSign.style.backgroundColor = curColor;
+    isErasing = false;
+    isRandomColors = false;
 });
 togglebtn.addEventListener('click', () => {
     if(isGridToggled) {
@@ -75,6 +78,7 @@ togglebtn.addEventListener('click', () => {
 randomColorsBtn.addEventListener('click', () => {
     isRandomColors = true;
 });
+
 
 function clear() {
     let grid = document.querySelectorAll(".pixel");
