@@ -5,7 +5,7 @@ const eraserbtn = document.getElementById('eraser-btn');
 const clearbtn = document.getElementById('clear-btn');
 const togglebtn = document.getElementById('toggle-grid-btn');
 const picker = document.getElementById('picker');
-
+const body = document.querySelector('body');
 
 let screenSize = 16;
 let curColor = '#000000';
@@ -34,7 +34,7 @@ for(let i = 0; i < screenSize; i++) {
             }
             isMouseDown = true;
         });
-        pixel.addEventListener('mouseup', () => {
+        body.addEventListener('mouseup', () => {
             isMouseDown = false;
         });
         pixel.addEventListener('mouseenter', () => {
@@ -87,7 +87,9 @@ eraserbtn.addEventListener('click', () => {
     isRandomColors = false;
     isErasing = true;
 });
+function updateSize() {
 
+}
 function clear() {
     let grid = document.querySelectorAll(".pixel");
     for(let i = 0; i < grid.length; i++) {
