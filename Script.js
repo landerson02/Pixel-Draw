@@ -1,8 +1,13 @@
 const screen = document.getElementById("screen");
 const colorSign = document.getElementById('color-sign');
+const pickColorBtn = document.getElementById('pick-color-btn');
+const randomColorsBtn = document.getElementById('random-color-btn');
+const eraserbtn = document.getElementById('eraser-btn');
+const clearbtn = document.getElementById('clear-btn');
+const picker = document.getElementById('picker');
 
 let screenSize = 16;
-let curColor = 'pink';
+let curColor = '#000000';
 
 colorSign.style.backgroundColor = curColor;
 
@@ -20,3 +25,12 @@ for(let i = 0; i < screenSize; i++) {
     }
     screen.appendChild(div);
 }
+
+// clearbtn.addEventListener('click', clear);
+pickColorBtn.addEventListener('click', () => {
+    picker.click();
+});
+picker.addEventListener('change', (e) => {
+    curColor = e.target.value;
+    colorSign.style.backgroundColor = curColor;
+});

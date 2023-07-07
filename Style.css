@@ -2,13 +2,24 @@
     font-family: gameover;
     src: url('game_over.woff') format('woff');
 }
-
+@keyframes rainbow {
+    0% { background-position: 0 50%; }
+    100% { background-position: 100% 50%; }
+}
+.rainbow-text {
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 5s linear infinite;
+    -webkit-text-stroke-width: 2px; /* Set the width of the text stroke */
+    -webkit-text-stroke-color: black;
+}
 body {
     display: flex;
     flex-direction: column;
 }
 .header {
-    font-size: 64px;
+    font-size: 250px;
     align-self: center;
     font-family: gameover, serif;
 }
