@@ -1,6 +1,5 @@
 const screen = document.getElementById("screen");
 const colorSign = document.getElementById('color-sign');
-const pickColorBtn = document.getElementById('pick-color-btn');
 const randomColorsBtn = document.getElementById('random-color-btn');
 const eraserbtn = document.getElementById('eraser-btn');
 const clearbtn = document.getElementById('clear-btn');
@@ -11,6 +10,7 @@ const picker = document.getElementById('picker');
 let screenSize = 16;
 let curColor = '#000000';
 let isGridToggled = true;
+let isMouseDown = false;
 
 colorSign.style.backgroundColor = curColor;
 
@@ -21,16 +21,29 @@ for(let i = 0; i < screenSize; i++) {
     for(let j = 0; j < screenSize; j++) {
         const pixel = document.createElement('div');
         pixel.classList.add('pixel');
-        pixel.addEventListener('click', () => {
+        pixel.addEventListener('mousedown', () => {
             pixel.style.backgroundColor = curColor;
+            isMouseDown = true;
         });
+        pixel.addEventListener('mouseup', () => {
+            isMouseDown = false;
+        });
+        pixel.addEventListener('mouseenter', () => {
+            if(isMouseDown) {
+                pixel.style.backgroundColor = curColor;
+            }
+        });
+        // pixel.addEventListener('click', () => {
+        //     pixel.style.backgroundColor = curColor;
+        // });
+
         div.appendChild(pixel);
     }
     screen.appendChild(div);
 }
 
 clearbtn.addEventListener('click', clear);
-pickColorBtn.addEventListener('click', () => {
+colorSign.addEventListener('click', () => {
     picker.click();
 });
 picker.addEventListener('change', (e) => {
@@ -60,3 +73,4 @@ function clear() {
         grid[i].style.backgroundColor = 'white';
     }
 }
+clear();
