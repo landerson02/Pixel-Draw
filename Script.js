@@ -9,6 +9,7 @@ const picker = document.getElementById('picker');
 
 let screenSize = 16;
 let curColor = '#000000';
+let curBGColor = '#FFFFFF';
 let isGridToggled = true;
 let isMouseDown = false;
 let isRandomColors = false;
@@ -26,6 +27,8 @@ for(let i = 0; i < screenSize; i++) {
         pixel.addEventListener('mousedown', () => {
             if(isRandomColors) {
                 pixel.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            } else if(isErasing) {
+                pixel.style.backgroundColor = curBGColor;
             } else {
                 pixel.style.backgroundColor = curColor;
             }
@@ -38,12 +41,13 @@ for(let i = 0; i < screenSize; i++) {
             if(isMouseDown) {
                 if(isRandomColors) {
                     pixel.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                } else if(isErasing) {
+                    pixel.style.backgroundColor = curBGColor;
                 } else {
                     pixel.style.backgroundColor = curColor;
                 }
             }
         });
-
         div.appendChild(pixel);
     }
     screen.appendChild(div);
@@ -76,9 +80,13 @@ togglebtn.addEventListener('click', () => {
     isGridToggled = !isGridToggled;
 });
 randomColorsBtn.addEventListener('click', () => {
+    isErasing = false;
     isRandomColors = true;
 });
-
+eraserbtn.addEventListener('click', () => {
+    isRandomColors = false;
+    isErasing = true;
+});
 
 function clear() {
     let grid = document.querySelectorAll(".pixel");
