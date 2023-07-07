@@ -36,6 +36,7 @@ body {
     justify-content: space-between;
     border: 1px solid black;
     height: 40vw;
+    width: 17vw;
 }
 .left {
     border-radius: 1vw 0 0 1vw;
@@ -50,13 +51,15 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 28vw;
-    width: 15em;
+    width: 17vw;
 }
 .btn {
     height: 6vw;
     font-family: Pixelmania, 'serif';
     font-size: 20px;
     border-radius: 1vw;
+    width: 17vw;
+
 }
 #color-sign-container {
     display: flex;

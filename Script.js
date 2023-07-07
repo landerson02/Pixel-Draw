@@ -5,6 +5,8 @@ const eraserbtn = document.getElementById('eraser-btn');
 const clearbtn = document.getElementById('clear-btn');
 const togglebtn = document.getElementById('toggle-grid-btn');
 const picker = document.getElementById('picker');
+const bgPicker = document.getElementById('bgpicker');
+const bgColorBtn = document.getElementById('bg-color-btn');
 const body = document.querySelector('body');
 
 let screenSize = 16;
@@ -87,13 +89,20 @@ eraserbtn.addEventListener('click', () => {
     isRandomColors = false;
     isErasing = true;
 });
+bgColorBtn.addEventListener('click', () => {
+   bgPicker.click()
+});
+bgPicker.addEventListener('change', (e) => {
+    curBGColor = e.target.value;
+    clear();
+})
 function updateSize() {
 
 }
 function clear() {
     let grid = document.querySelectorAll(".pixel");
     for(let i = 0; i < grid.length; i++) {
-        grid[i].style.backgroundColor = 'white';
+        grid[i].style.backgroundColor = curBGColor;
     }
 }
 clear();
