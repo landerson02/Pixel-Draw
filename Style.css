@@ -4,19 +4,35 @@ body {
 }
 
 .header {
-    font-size: 48px;
-    display: flex;
-    justify-self: center;
+    font-size: 64px;
+    align-self: center;
 }
 
 .main-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
-
 .options-container {
+
     display: flex;
     flex-direction: column;
 }
 
+/* Screen classes */
+#screen {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.pixel {
+    border: 1px solid black;
+    width: 2em;
+    height: 2em;
+}
