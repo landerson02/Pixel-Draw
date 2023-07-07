@@ -11,6 +11,7 @@ let screenSize = 16;
 let curColor = '#000000';
 let isGridToggled = true;
 let isMouseDown = false;
+let isRandomColors = false;
 
 colorSign.style.backgroundColor = curColor;
 
@@ -22,7 +23,11 @@ for(let i = 0; i < screenSize; i++) {
         const pixel = document.createElement('div');
         pixel.classList.add('pixel');
         pixel.addEventListener('mousedown', () => {
-            pixel.style.backgroundColor = curColor;
+            if(isRandomColors) {
+                pixel.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            } else {
+                pixel.style.backgroundColor = curColor;
+            }
             isMouseDown = true;
         });
         pixel.addEventListener('mouseup', () => {
@@ -30,12 +35,13 @@ for(let i = 0; i < screenSize; i++) {
         });
         pixel.addEventListener('mouseenter', () => {
             if(isMouseDown) {
-                pixel.style.backgroundColor = curColor;
+                if(isRandomColors) {
+                    pixel.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                } else {
+                    pixel.style.backgroundColor = curColor;
+                }
             }
         });
-        // pixel.addEventListener('click', () => {
-        //     pixel.style.backgroundColor = curColor;
-        // });
 
         div.appendChild(pixel);
     }
@@ -65,6 +71,9 @@ togglebtn.addEventListener('click', () => {
         }
     }
     isGridToggled = !isGridToggled;
+});
+randomColorsBtn.addEventListener('click', () => {
+    isRandomColors = true;
 });
 
 function clear() {
