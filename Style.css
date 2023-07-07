@@ -1,23 +1,41 @@
+@font-face {
+    font-family: gameover;
+    src: url('game_over.woff') format('woff');
+}
+
 body {
     display: flex;
     flex-direction: column;
 }
-
 .header {
     font-size: 64px;
     align-self: center;
+    font-family: gameover, serif;
 }
-
 .main-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.options-container {
-
+.btn-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 32em;
+    width: 10em;
+    border: solid 1px black;
+}
+.btn {
+    height: 4em;
+    border-radius: .5em;
+}
+#color-sign {
+    align-self: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
 }
 
 /* Screen classes */
@@ -25,14 +43,13 @@ body {
     display: flex;
     flex-direction: column;
 }
-
 .row {
     display: flex;
     flex-direction: row;
 }
-
 .pixel {
     border: 1px solid black;
+    margin: -1px;
     width: 2em;
     height: 2em;
 }
