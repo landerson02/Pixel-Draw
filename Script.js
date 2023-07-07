@@ -26,7 +26,7 @@ for(let i = 0; i < screenSize; i++) {
     screen.appendChild(div);
 }
 
-// clearbtn.addEventListener('click', clear);
+clearbtn.addEventListener('click', clear);
 pickColorBtn.addEventListener('click', () => {
     picker.click();
 });
@@ -34,3 +34,10 @@ picker.addEventListener('change', (e) => {
     curColor = e.target.value;
     colorSign.style.backgroundColor = curColor;
 });
+
+function clear() {
+    let grid = document.querySelectorAll(".pixel");
+    for(let i = 0; i < grid.length; i++) {
+        grid[i].style.backgroundColor = 'white';
+    }
+}
