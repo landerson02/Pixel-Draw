@@ -4,10 +4,13 @@ const pickColorBtn = document.getElementById('pick-color-btn');
 const randomColorsBtn = document.getElementById('random-color-btn');
 const eraserbtn = document.getElementById('eraser-btn');
 const clearbtn = document.getElementById('clear-btn');
+const togglebtn = document.getElementById('toggle-grid-btn');
 const picker = document.getElementById('picker');
+
 
 let screenSize = 16;
 let curColor = '#000000';
+let isGridToggled = true;
 
 colorSign.style.backgroundColor = curColor;
 
@@ -33,6 +36,22 @@ pickColorBtn.addEventListener('click', () => {
 picker.addEventListener('change', (e) => {
     curColor = e.target.value;
     colorSign.style.backgroundColor = curColor;
+});
+togglebtn.addEventListener('click', () => {
+    if(isGridToggled) {
+        let grid = document.querySelectorAll(".pixel");
+        for(let i = 0; i < grid.length; i++) {
+            grid[i].style.border = 'none';
+            grid[i].style.margin = '0';
+        }
+    } else {
+        let grid = document.querySelectorAll(".pixel");
+        for(let i = 0; i < grid.length; i++) {
+            grid[i].style.border = '1px solid black';
+            grid[i].style.margin = '-1px';
+        }
+    }
+    isGridToggled = !isGridToggled;
 });
 
 function clear() {
