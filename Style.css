@@ -53,6 +53,9 @@ body {
     height: 28vw;
     width: 17vw;
 }
+#r {
+    height: 40vw;
+}
 .btn {
     height: 6vw;
     font-family: Pixelmania, 'serif';
