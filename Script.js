@@ -1,9 +1,9 @@
 const screen = document.getElementById("screen");
 const colorSign = document.getElementById('color-sign');
 const randomColorsBtn = document.getElementById('random-color-btn');
-const eraserbtn = document.getElementById('eraser-btn');
-const clearbtn = document.getElementById('clear-btn');
-const togglebtn = document.getElementById('toggle-grid-btn');
+const eraserBtn = document.getElementById('eraser-btn');
+const clearBtn = document.getElementById('clear-btn');
+const toggleBtn = document.getElementById('toggle-grid-btn');
 const picker = document.getElementById('picker');
 const bgPicker = document.getElementById('bgpicker');
 const bgColorBtn = document.getElementById('bg-color-btn');
@@ -17,7 +17,6 @@ let isGridToggled = true;
 let isMouseDown = false;
 let isRandomColors = false;
 let isErasing = false;
-let pixelSize = '2.5vw';
 
 colorSign.style.backgroundColor = curColor;
 
@@ -58,8 +57,7 @@ function makeScreen() {
         screen.appendChild(div);
     }
 }
-
-clearbtn.addEventListener('click', clear);
+clearBtn.addEventListener('click', clear);
 colorSign.addEventListener('click', () => {
     picker.click();
 });
@@ -69,7 +67,7 @@ picker.addEventListener('change', (e) => {
     isErasing = false;
     isRandomColors = false;
 });
-togglebtn.addEventListener('click', () => {
+toggleBtn.addEventListener('click', () => {
     if(isGridToggled) {
         let grid = document.querySelectorAll(".pixel");
         for(let i = 0; i < grid.length; i++) {
@@ -89,7 +87,7 @@ randomColorsBtn.addEventListener('click', () => {
     isErasing = false;
     isRandomColors = true;
 });
-eraserbtn.addEventListener('click', () => {
+eraserBtn.addEventListener('click', () => {
     isRandomColors = false;
     isErasing = true;
 });
@@ -99,7 +97,7 @@ bgColorBtn.addEventListener('click', () => {
 bgPicker.addEventListener('change', (e) => {
     curBGColor = e.target.value;
     clear();
-})
+});
 adjustSizeBtn.addEventListener('click', () => {
    screenSize = prompt("Warning! inputs above 64x64 may slow down computer\nInput size: ");
    while(screen.firstChild) {
@@ -108,7 +106,6 @@ adjustSizeBtn.addEventListener('click', () => {
    makeScreen();
    clear();
 });
-
 function clear() {
     let grid = document.querySelectorAll(".pixel");
     for(let i = 0; i < grid.length; i++) {
